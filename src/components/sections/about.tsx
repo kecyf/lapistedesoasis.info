@@ -19,9 +19,9 @@ const features = [
         />
       </svg>
     ),
-    title: "Aventure Authentique",
+    title: "Terrains Variés",
     description:
-      "Des parcours hors des sentiers battus, au cœur de paysages grandioses et de cultures vivantes.",
+      "Dunes, sentiers de montagne, pistes, canyons, ergs, déserts... Chaque étape sur un terrain différent.",
   },
   {
     icon: (
@@ -39,9 +39,9 @@ const features = [
         />
       </svg>
     ),
-    title: "Petits Groupes",
+    title: "35-60 Participants",
     description:
-      "Maximum 45 participants pour garantir une expérience conviviale et un encadrement de qualité.",
+      "Petits groupes pour une expérience conviviale. Programme marcheurs inclus sur la moitié des étapes.",
   },
   {
     icon: (
@@ -55,13 +55,13 @@ const features = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={1.5}
-          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
         />
       </svg>
     ),
-    title: "Sport & Bien-être",
+    title: "Tout Inclus",
     description:
-      "Un défi sportif accessible qui allie course, marche et récupération dans des cadres exceptionnels.",
+      "Ravitaillements, sécurité, couverture médicale, transports, hébergements en pension complète.",
   },
   {
     icon: (
@@ -81,7 +81,7 @@ const features = [
     ),
     title: "Depuis 2007",
     description:
-      "18 ans d'expérience, 21 éditions, 12 destinations. Une organisation rodée et passionnée.",
+      "18 ans d'expérience, +14 pays visités. Une organisation rodée par Cap au Sud-Evasion.",
   },
 ];
 
@@ -121,20 +121,23 @@ export function About() {
             </h2>
             <div className="space-y-4 text-sand-700 text-lg">
               <p>
-                Née en 2007 d'une passion pour les grands espaces et la course à
-                pied, <strong>La Piste des Oasis</strong> propose chaque année
-                un trail à étapes unique dans les plus beaux déserts du monde.
+                Si vous aimez les grands espaces, la découverte de lieux sauvages
+                d'une grande beauté, si vous aimez la course à pied et surtout si
+                vous aimez vous faire plaisir, alors{" "}
+                <strong>La Piste des Oasis</strong> est faite pour vous !
               </p>
               <p>
-                De la Tunisie au Cap Vert, du Maroc à la Mongolie, nous avons
-                parcouru des milliers de kilomètres avec des centaines de
-                participants devenus amis.
+                Depuis 2007, nous proposons des trails à 4-5 étapes dans des
+                paysages grandioses : étapes de 20 km en moyenne, une plus
+                sélective jusqu'à 35 km. C'est aussi des moments sympas, des
+                rencontres, des partages, quelques découvertes culturelles...
               </p>
               <p>
                 Notre philosophie ? Un format{" "}
-                <strong>accessible à tous les niveaux</strong>, où l'on peut
-                courir ou marcher selon son rythme, tout en vivant une aventure
-                collective inoubliable.
+                <strong>accessible à tous les niveaux</strong> classé en
+                « difficulté moyenne », permettant aux débutants de découvrir le
+                trail à étapes tout en offrant une sélectivité pour les coureurs
+                expérimentés.
               </p>
             </div>
 
@@ -212,8 +215,13 @@ export function About() {
               "Cap Vert",
               "Mongolie",
               "Turquie",
+              "Vietnam",
+              "Croatie",
+              "Açores",
               "Jordanie",
-              "Oman",
+              "Namibie",
+              "Birmanie",
+              "Grèce",
             ].map((destination, index) => (
               <span
                 key={index}

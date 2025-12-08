@@ -5,6 +5,8 @@ import { Header } from "@/components/layout/header";
 import { Hero } from "@/components/sections/hero";
 import { NextEdition } from "@/components/sections/next-edition";
 import { About } from "@/components/sections/about";
+import { Videos } from "@/components/sections/videos";
+import { Editions } from "@/components/sections/editions";
 import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
@@ -18,8 +20,9 @@ export default function Home() {
       <Hero />
       <NextEdition />
       <About />
+      <Videos />
+      <Editions />
       <Footer />
     </motion.main>
   );
 }
-

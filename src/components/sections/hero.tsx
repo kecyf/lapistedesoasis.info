@@ -128,10 +128,10 @@ export function Hero() {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
-            { value: "21", label: "éditions" },
-            { value: "+100", label: "kilomètres" },
-            { value: "4", label: "étapes" },
-            { value: "12", label: "destinations" },
+            { value: "18", label: "ans d'aventure" },
+            { value: "14+", label: "pays visités" },
+            { value: "4-5", label: "étapes" },
+            { value: "20-35", label: "km par étape" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl md:text-4xl font-heading text-white mb-1">
