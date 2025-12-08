@@ -35,7 +35,12 @@
 - `About` - "Notre Histoire" with feature grid
 - `Footer` - Full footer with socials & links
 
-**Dev Server**: Running on port 3001
+**Deployment**
+- validated production build (`bun run build` ✅)
+- initialized git repository
+- created GitHub repo: https://github.com/kecyf/lapistedesoasis.info
+- pushed to `main` branch
+- Vercel: pending connection by Kevin
 
 ---
 
