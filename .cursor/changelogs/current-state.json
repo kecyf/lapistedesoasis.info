@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "project": "lapistedesoasis.info",
+    "workspace": "/Users/kvncyf-orixamedia/Developer/projects/lapistedesoasis.info",
+    "last_updated": "YYYY-MM-DDTHH:MM:SSZ",
+    "last_session": "YYYY-MM-DD/session-XX-focus"
+  },
+  "recent_work": {
+    "focus": "",
+    "sessions_today": 0,
+    "completion": ""
+  },
+  "current_state": {
+    "phase": "",
+    "blockers": [],
+    "priorities": []
+  },
+  "recent_changes": [],
+  "git": {
+    "branch": "main",
+    "last_commit": "",
+    "uncommitted_changes": false
+  }
+}
+

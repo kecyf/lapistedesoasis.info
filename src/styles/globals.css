@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * 🏜️ LA PISTE DES OASIS - Desert Modernism Theme
+ * 
+ * Palette inspirée des déserts et oasis :
+ * - Sables chauds du Sahara
+ * - Ocres et terracotta marocains
+ * - Bleus profonds des nuits désertiques
+ * - Verts jade des oasis
+ */
+
+/* === CUSTOM COLORS === */
+@theme {
+  /* Sand / Warm Neutrals */
+  --color-sand-50: #faf8f5;
+  --color-sand-100: #f5f0e8;
+  --color-sand-200: #ebe1d1;
+  --color-sand-300: #ddd0b8;
+  --color-sand-400: #c4a574;
+  --color-sand-500: #b8956a;
+  --color-sand-600: #a07d52;
+  --color-sand-700: #866744;
+  --color-sand-800: #6e553a;
+  --color-sand-900: #5a4632;
+
+  /* Terracotta / Accent Warm */
+  --color-terracotta-400: #d4785a;
+  --color-terracotta-500: #c45a3a;
+  --color-terracotta-600: #a84830;
+  --color-terracotta-700: #8c3c28;
+  --color-terracotta-900: #5a2518;
+
+  /* Oasis / Accent Cool */
+  --color-oasis-400: #4a9e8c;
+  --color-oasis-500: #3d8577;
+  --color-oasis-600: #326d62;
+  --color-oasis-700: #285750;
+
+  /* Night Sky / Dark */
+  --color-night-800: #1a1d2e;
+  --color-night-900: #0f1118;
+  --color-night-950: #080910;
+
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+
+  /* Custom shadows */
+  --shadow-warm: 0 4px 14px -3px rgba(180, 140, 100, 0.15);
+  --shadow-warm-lg: 0 10px 40px -10px rgba(180, 140, 100, 0.2);
+}
+
+/* === SHADCN THEME INTEGRATION === */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* === ROOT VARIABLES (Desert Modernism) === */
+:root {
+  --radius: 0.625rem;
+  
+  /* Light theme - Sandy warmth */
+  --background: #faf8f5;
+  --foreground: #0f1118;
+  --card: #ffffff;
+  --card-foreground: #0f1118;
+  --popover: #ffffff;
+  --popover-foreground: #0f1118;
+  --primary: #3d8577;
+  --primary-foreground: #ffffff;
+  --secondary: #ebe1d1;
+  --secondary-foreground: #5a4632;
+  --muted: #ebe1d1;
+  --muted-foreground: #a07d52;
+  --accent: #c45a3a;
+  --accent-foreground: #ffffff;
+  --destructive: #c45a3a;
+  --border: #ddd0b8;
+  --input: #ddd0b8;
+  --ring: #3d8577;
+}
+
+.dark {
+  /* Dark theme - Night desert */
+  --background: #0f1118;
+  --foreground: #f5f0e8;
+  --card: #1a1d2e;
+  --card-foreground: #f5f0e8;
+  --popover: #1a1d2e;
+  --popover-foreground: #f5f0e8;
+  --primary: #4a9e8c;
+  --primary-foreground: #0f1118;
+  --secondary: #1a1d2e;
+  --secondary-foreground: #f5f0e8;
+  --muted: #1a1d2e;
+  --muted-foreground: #c4a574;
+  --accent: #d4785a;
+  --accent-foreground: #0f1118;
+  --destructive: #d4785a;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #4a9e8c;
+}
+
+/* === BASE STYLES === */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-medium tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  ::selection {
+    @apply bg-terracotta-500/20 text-terracotta-700;
+  }
+}
+
+/* === UTILITY CLASSES === */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-sand {
+    background: linear-gradient(
+      135deg,
+      var(--color-sand-100) 0%,
+      var(--color-sand-200) 50%,
+      var(--color-sand-100) 100%
+    );
+  }
+
+  .gradient-night {
+    background: linear-gradient(
+      180deg,
+      var(--color-night-800) 0%,
+      var(--color-night-950) 100%
+    );
+  }
+
+  .gradient-sunset {
+    background: linear-gradient(
+      135deg,
+      var(--color-terracotta-400) 0%,
+      var(--color-terracotta-600) 100%
+    );
+  }
+}
