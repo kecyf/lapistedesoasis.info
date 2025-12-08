@@ -6,6 +6,52 @@
 
 ## [2025-12-08]
 
+### session-04: Maroc 2026 update & inscription form
+
+#### 🎯 Accomplishments
+
+**Page Règlement (`/reglement`)**
+- Created complete rules page with 17 articles from legacy site
+- Table of contents, quick stats, card-based design
+- Icons per article type, important notice section
+
+**Team Section**
+- Added 7 staff members with roles:
+  - Gilbert, Patrick, Gérard, Marc, Jean Claude, Hervé, Aimée
+- Cap au Sud-Evasion info card (agency since 1992)
+- RaidLight partner mention
+
+**Morocco 2026 Update**
+- Hero: 22ème édition, Maroc 2026
+- NextEdition: Complete 7-day programme
+  - Dates: 30/05 - 05/06/2026
+  - Total: 69km coureurs / 49km marcheurs
+  - 4 stages with distances & elevations
+  - Bivouac night at 2300m
+  - Max altitude: 2500m
+- Pricing: 890€ groupe / 920€ individuel
+- Departure cities: Paris, Lyon, Nice, Toulouse
+- Editions timeline: 2026 Maroc, 2027 Mongolie, 2028 Essaouira
+
+**Pre-registration Form (`/inscription`)**
+- Simplified web form (not full legal form)
+- Fields: name, email, phone, type, airport, team, options
+- Mailto submission (no backend needed)
+- Success confirmation screen
+- Full legal form handled via email follow-up
+
+#### 📁 Files
+
+```
+NEW: src/app/reglement/page.tsx
+NEW: src/app/inscription/page.tsx
+NEW: src/components/sections/team.tsx
+NEW: public/files/ (for future PDFs)
+MOD: hero.tsx, next-edition.tsx, editions.tsx, header.tsx, page.tsx
+```
+
+---
+
 ### session-03: Next.js foundation & Desert Modernism UI
 
 #### 🎯 Accomplishments
@@ -80,12 +126,7 @@
   - likely disabled/misconfigured on OVH side
   - needs OVH panel access to fix or use web file manager
 
-#### 📋 Next Steps
-
-1. Kevin to try SFTP via FileZilla (port 22, IP 213.186.33.48)
-2. Or access OVH panel to check hosting status / use web file manager
-3. Continue with Next.js setup while FTP issue is resolved
-4. Can scrape live site content as fallback
+---
 
 ### session-01: lumi session system initialization
 
@@ -98,7 +139,9 @@
 
 ## Patterns Across Sessions
 
-*patterns will accumulate here as sessions are captured*
+- **No FTP access** → manual content crawling worked as fallback
+- **Form complexity** → split into simple web form + email follow-up for legal docs
+- **Content-first** → crawled legacy site before building new components
 
 ---
 

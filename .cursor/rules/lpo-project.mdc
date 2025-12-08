@@ -1,0 +1,134 @@
+---
+description: La Piste des Oasis - project context and conventions
+globs: 
+alwaysApply: true
+---
+
+# 🏜️ La Piste des Oasis - Project Context
+
+## Project Overview
+
+**Website for "La Piste des Oasis"** - a multi-stage trail running event organized by Cap au Sud-Evasion travel agency since 2007. This is a complete rebuild of the legacy 2009 site.
+
+## Current Edition
+
+**Maroc 2026 — La Vallée Heureuse**
+- Dates: 30 Mai - 5 Juin 2026 (7J/6N)
+- Location: Haut Atlas Central, Aït Bouguemez valley
+- Distance: 69km coureurs / 49km marcheurs
+- 4 stages + bivouac at 2300m
+- Price: 890€ (groupe) / 920€ (individuel)
+
+## Tech Stack
+
+| Tech | Notes |
+|------|-------|
+| Next.js 16 | App Router, TypeScript |
+| Tailwind CSS v4 | CSS-first config in globals.css |
+| shadcn/ui | Button, Card components |
+| Framer Motion | Page transitions, scroll animations |
+| Supabase | Client ready, not yet connected |
+| Vercel | Auto-deploy from `main` |
+
+## Design System: "Desert Modernism"
+
+### Colors (CSS variables in globals.css)
+- **Sand** (`--sand-*`): Warm neutrals, backgrounds
+- **Terracotta** (`--terracotta-*`): Accent, CTAs, highlights
+- **Oasis** (`--oasis-*`): Secondary accent, links
+- **Night** (`--night-*`): Dark backgrounds, text
+
+### Typography
+- **Headings**: Playfair Display (`font-display`, `font-heading`)
+- **Body**: Source Sans 3 (`font-sans`)
+
+### Components
+Use existing patterns from `src/components/`:
+- `layout/header.tsx` - Sticky animated header
+- `layout/footer.tsx` - Full footer with contact
+- `sections/` - Hero, About, Team, Videos, Editions, NextEdition
+
+## Key Pages
+
+| Route | Purpose |
+|-------|---------|
+| `/` | Homepage with all sections |
+| `/reglement` | Race rules (17 articles) |
+| `/inscription` | Pre-registration form |
+
+## Business Context
+
+### Organization
+- **Agency**: Cap au Sud-Evasion (since 1992)
+- **Contact**: capsud.evasion@gmail.com / 04 93 14 02 94
+- **Registration**: IM006120050
+- **Partner**: RaidLight
+
+### Staff (for reference)
+Gilbert (responsable), Patrick (secouriste), Gérard (organisation), 
+Marc (webmaster), Jean Claude (photo), Hervé (terrain), Aimée (chrono)
+
+### Historical Editions
+2007-2025: Tunisie, Maroc, Cappadoce, Égypte, Sénégal, Cap Vert, Vietnam, Açores, Croatie, Mongolie...
+
+### Future Calendar
+- 2026: Maroc - Haut Atlas
+- 2027: Mongolie
+- 2028: Pistes d'Essaouira (retour)
+
+## Code Conventions
+
+### Package Manager
+**ALWAYS use bun**: `bun install`, `bun run dev`, `bun add`
+
+### Styling
+- Use Tailwind utilities with custom theme classes
+- `font-display` for headings, `font-sans` for body
+- Color classes: `text-terracotta-500`, `bg-sand-50`, etc.
+
+### Components
+- Use `'use client'` for interactive components
+- Framer Motion for animations (`motion.div`, `whileInView`)
+- shadcn/ui for form elements
+
+### Forms
+- Pre-registration uses mailto (no backend)
+- Full legal forms handled via email follow-up
+
+## File Structure
+
+```
+src/
+├── app/           # Pages (App Router)
+├── components/
+│   ├── layout/    # Header, Footer
+│   ├── sections/  # Page sections
+│   └── ui/        # shadcn components
+├── lib/           # Supabase, utils
+└── styles/        # globals.css (theme)
+
+docs/              # Project docs, session logs
+legacy/            # Crawled content from old site
+```
+
+## Common Tasks
+
+### Add new section
+1. Create in `src/components/sections/`
+2. Import in `src/app/page.tsx`
+3. Add navigation link in `header.tsx`
+
+### Update edition info
+- `hero.tsx`: Badge, stats, CTA
+- `next-edition.tsx`: Full programme details
+- `editions.tsx`: Timeline
+
+### Build & deploy
+```bash
+bun run build  # MUST pass before push
+git push       # Auto-deploys to Vercel
+```
+
+---
+
+*Context rule for La Piste des Oasis project 🏜️*
