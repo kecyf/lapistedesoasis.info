@@ -6,11 +6,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "#edition", label: "Prochaine Édition" },
-  { href: "#parcours", label: "Parcours" },
-  { href: "#histoire", label: "Notre Histoire" },
-  { href: "#temoignages", label: "Témoignages" },
-  { href: "#inscription", label: "S'inscrire" },
+  { href: "#next-edition", label: "Prochaine Édition" },
+  { href: "#about", label: "Notre Histoire" },
+  { href: "#editions", label: "Éditions" },
+  { href: "#team", label: "Équipe" },
+  { href: "/reglement", label: "Règlement" },
 ];
 
 export function Header() {
