@@ -40,7 +40,7 @@
 - initialized git repository
 - created GitHub repo: https://github.com/kecyf/lapistedesoasis.info
 - pushed to `main` branch
-- Vercel: pending connection by Kevin
+- Vercel: ✅ connected and deployed
 
 ---
 
