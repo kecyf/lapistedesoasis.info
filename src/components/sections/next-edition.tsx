@@ -1,7 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Download } from "lucide-react";
+import { Calendar, MapPin, Users, Mountain, Euro, Plane, Moon, ChevronRight } from "lucide-react";
+
+const stages = [
+  { day: 1, name: "France → Marrakech", type: "travel", desc: "Accueil aéroport, installation riad" },
+  { day: 2, name: "Prologue - Tillouguite", type: "run", km: 13, elevation: "±450m", desc: "Acclimatation, sentiers muletiers" },
+  { day: 3, name: "Montée Taourarate", type: "run", km: 19, elevation: "+770m", desc: "Plateaux d'altitude, bivouac 2300m" },
+  { day: 4, name: "Étape Reine → Asm Souk", type: "run", km: 21, elevation: "+750m/-850m", desc: "3 cols, point culminant 2500m" },
+  { day: 5, name: "Vallée Heureuse", type: "run", km: 16, elevation: "+140m", desc: "Aït Bouguemez, villages berbères" },
+  { day: 6, name: "Retour Marrakech", type: "visit", desc: "Visites libres, médina, souks" },
+  { day: 7, name: "Départ", type: "travel", desc: "Vol retour" },
+];
 
 export function NextEdition() {
   return (
@@ -16,162 +26,202 @@ export function NextEdition() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12"
         >
           <span className="inline-block text-terracotta-500 text-sm font-medium uppercase tracking-widest mb-4">
-            Prochaine Aventure
+            22ème Édition • 30 Mai - 5 Juin 2026
           </span>
           <h2 className="font-heading text-4xl md:text-5xl text-night-900 mb-4">
-            Maroc 2026 — La Vallée Heureuse
+            Maroc — La Vallée Heureuse
           </h2>
-          <p className="max-w-2xl text-lg text-sand-700">
-            Haut Atlas Central — Découvrez un Maroc authentique, une vie montagnarde 
-            locale et des espaces préservés dans la région d'Aït Bouguemez.
+          <p className="max-w-3xl text-lg text-sand-700">
+            Haut Atlas Central • Une aventure unique, plus "voyage", pour découvrir crescendo 
+            cette région peu connue dans une des parties les plus hautes du Haut Atlas. 
+            La Vallée Heureuse (Aït Bouguemez), le but final, qui se mérite.
           </p>
         </motion.div>
 
-        {/* Content grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Image placeholder */}
+        {/* Key Stats Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12"
+        >
+          {[
+            { icon: Calendar, label: "Dates", value: "30/05 - 05/06", sub: "7J / 6N" },
+            { icon: Mountain, label: "Total", value: "69 km", sub: "4 étapes" },
+            { icon: MapPin, label: "Altitude max", value: "2500m", sub: "Haut Atlas" },
+            { icon: Euro, label: "À partir de", value: "890€", sub: "groupe" },
+            { icon: Users, label: "Places", value: "10", sub: "restantes" },
+            { icon: Moon, label: "Bivouac", value: "1 nuit", sub: "incluse" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl p-4 shadow-warm text-center"
+            >
+              <item.icon className="w-5 h-5 text-terracotta-500 mx-auto mb-2" />
+              <div className="text-xs text-sand-500 uppercase tracking-wider">{item.label}</div>
+              <div className="text-xl font-heading text-night-900">{item.value}</div>
+              <div className="text-xs text-sand-600">{item.sub}</div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Two columns: Programme + Details */}
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Left: Programme Timeline */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
+            className="lg:col-span-3"
           >
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-terracotta-200 to-sand-300">
-              {/* Placeholder for image */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-terracotta-400/30 flex items-center justify-center">
-                    <span className="text-4xl">🇲🇦</span>
-                  </div>
-                  <p className="text-sm text-terracotta-700 font-medium">
-                    Haut Atlas Central
-                  </p>
-                  <p className="text-xs text-sand-600 mt-1">
-                    Image à venir
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Date badge */}
-            <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-white rounded-xl shadow-warm-lg p-4">
-              <div className="text-center">
-                <div className="text-3xl font-heading text-terracotta-500">
-                  2026
-                </div>
-                <div className="text-sm font-medium text-night-800">
-                  22ème édition
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right: Details */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {/* Key info cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: "🏔️", label: "Région", value: "Haut Atlas" },
-                { icon: "📍", label: "Étapes", value: "4 jours" },
-                { icon: "👥", label: "Places", value: "10 restantes" },
-                { icon: "🏃", label: "Niveau", value: "Accessible" },
-              ].map((item, index) => (
-                <div
+            <h3 className="font-heading text-xl text-night-900 mb-6 flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-terracotta-500" />
+              Programme des 7 jours
+            </h3>
+            
+            <div className="space-y-3">
+              {stages.map((stage, index) => (
+                <motion.div
                   key={index}
-                  className="bg-white rounded-xl p-4 shadow-warm"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className={`flex items-start gap-4 p-4 rounded-xl ${
+                    stage.type === 'run' 
+                      ? 'bg-white shadow-warm border-l-4 border-terracotta-500' 
+                      : 'bg-sand-100'
+                  }`}
                 >
-                  <div className="text-2xl mb-2">{item.icon}</div>
-                  <div className="text-sm text-sand-600 mb-1">{item.label}</div>
-                  <div className="text-lg font-medium text-night-900">
-                    {item.value}
+                  <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
+                    stage.type === 'run' 
+                      ? 'bg-terracotta-500 text-white' 
+                      : 'bg-sand-300 text-sand-700'
+                  }`}>
+                    J{stage.day}
                   </div>
-                </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-medium text-night-900">{stage.name}</span>
+                      {stage.km && (
+                        <span className="px-2 py-0.5 bg-terracotta-100 text-terracotta-700 text-xs rounded-full font-medium">
+                          {stage.km} km
+                        </span>
+                      )}
+                      {stage.elevation && (
+                        <span className="px-2 py-0.5 bg-oasis-100 text-oasis-700 text-xs rounded-full">
+                          {stage.elevation}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-sand-600 mt-1">{stage.desc}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
 
-            {/* Description */}
-            <div className="prose prose-sand">
-              <p className="text-sand-700 leading-relaxed">
-                Cette nouvelle édition de la Piste des Oasis, la 22ème, se propose 
-                différente, plus <strong>'voyage'</strong>, pour vous faire découvrir 
-                crescendo cette région peu connue dans une des parties les plus hautes 
-                du Haut Atlas central.
+            {/* Marcheurs option */}
+            <div className="mt-4 p-4 bg-oasis-50 rounded-xl border border-oasis-200">
+              <p className="text-sm text-oasis-800">
+                <strong>Option Marcheurs :</strong> 49 km total avec 4 étapes de 9 à 14 km. 
+                Mêmes parcours raccourcis, même aventure !
               </p>
-              <p className="text-sand-700 leading-relaxed">
-                <strong>La Vallée Heureuse</strong> (Aït Bouguemez), le but final, qui se mérite. 
-                L'aspect traditionnel Berbère conservé dans ces espaces d'altitude offre 
-                une excellente raison de découvrir un Maroc authentique, une vie montagnarde 
-                locale, des espaces préservés.
-              </p>
-              <p className="text-sand-600 text-sm italic">
-                Ce sera, après le prologue d'acclimatation, la traversée d'un massif 
-                avec 2 étapes pour monter et traverser des plateaux d'altitude avant de 
-                découvrir enfin la Vallée Heureuse.
+            </div>
+          </motion.div>
+
+          {/* Right: Details & CTA */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2 space-y-6"
+          >
+            {/* Highlights */}
+            <div className="bg-white rounded-xl p-6 shadow-warm">
+              <h4 className="font-heading text-lg text-night-900 mb-4">Ce qui vous attend</h4>
+              <ul className="space-y-3 text-sm">
+                {[
+                  "Maroc authentique, vie montagnarde locale",
+                  "Aspect traditionnel Berbère préservé",
+                  "1 nuit bivouac sous les étoiles à 2300m",
+                  "Équipe locale francophone",
+                  "Pension complète du J1 au J7",
+                  "Visites libres à Marrakech",
+                  "Vêtement technique LPO offert",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <ChevronRight className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
+                    <span className="text-sand-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Departure cities */}
+            <div className="bg-sand-100 rounded-xl p-6">
+              <h4 className="font-heading text-lg text-night-900 mb-3 flex items-center gap-2">
+                <Plane className="w-4 h-4 text-terracotta-500" />
+                Villes de départ
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {['Paris', 'Lyon', 'Nice', 'Toulouse'].map((city) => (
+                  <span key={city} className="px-3 py-1 bg-white rounded-full text-sm text-sand-700">
+                    {city}
+                  </span>
+                ))}
+              </div>
+              <p className="text-xs text-sand-500 mt-3">
+                Vols en option (~170€) • Arrivée Marrakech 17h30-18h30
               </p>
             </div>
 
-            {/* Alert */}
-            <div className="bg-terracotta-50 border border-terracotta-200 rounded-xl p-4">
-              <p className="text-terracotta-800 text-sm font-medium">
-                ⚠️ Il reste seulement 10 places pour cette édition !
-              </p>
-              <p className="text-terracotta-600 text-sm mt-1">
-                La réservation de place par mail est ouverte aux tarifs indiqués sur la fiche programme.
-              </p>
-            </div>
-
-            {/* Documents */}
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-night-800">Documents à télécharger :</p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="/files/programme-maroc-2026.pdf"
-                  className="inline-flex items-center gap-2 rounded-lg border border-sand-300 bg-white px-4 py-3 text-sm font-medium text-night-800 transition-all hover:border-terracotta-500 hover:text-terracotta-600"
-                >
-                  <FileText className="w-4 h-4" />
-                  Le pré-programme avec les informations nécessaires
-                </a>
-                <a
-                  href="/files/inscription-maroc-2026.pdf"
-                  className="inline-flex items-center gap-2 rounded-lg border border-sand-300 bg-white px-4 py-3 text-sm font-medium text-night-800 transition-all hover:border-terracotta-500 hover:text-terracotta-600"
-                >
-                  <Download className="w-4 h-4" />
-                  Inscription pour la LPO Maroc Haut Atlas 2026
-                </a>
+            {/* Pricing */}
+            <div className="bg-gradient-to-br from-terracotta-500 to-terracotta-600 rounded-xl p-6 text-white">
+              <h4 className="font-heading text-lg mb-4">Tarifs</h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-white/80">Groupe (20-25 pers.)</span>
+                  <span className="font-bold">890€</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/80">Individuel</span>
+                  <span className="font-bold">920€</span>
+                </div>
+                <div className="flex justify-between text-white/70 text-xs">
+                  <span>Chambre indiv. Marrakech</span>
+                  <span>+48€</span>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/20 text-xs text-white/70">
+                Tarifs garantis jusqu'au 31/10/2025
               </div>
             </div>
 
+            {/* Alert */}
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <p className="text-amber-800 text-sm font-medium">
+                ⚠️ Seulement 10 places restantes !
+              </p>
+              <p className="text-amber-700 text-xs mt-1">
+                Acompte de 300€ à l'inscription
+              </p>
+            </div>
+
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="space-y-3">
               <a
-                href="mailto:capsud.evasion@gmail.com?subject=Inscription LPO Maroc 2026"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-terracotta-500 px-8 py-4 text-base font-medium text-white transition-all hover:bg-terracotta-600 hover:scale-105"
+                href="mailto:capsud.evasion@gmail.com?subject=Inscription LPO Maroc Haut Atlas 2026"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-night-900 px-6 py-4 text-base font-medium text-white transition-all hover:bg-night-800 hover:scale-[1.02]"
               >
                 Réserver ma place
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                <ChevronRight className="w-5 h-5" />
               </a>
+              <p className="text-center text-xs text-sand-500">
+                Contact : capsud.evasion@gmail.com • 04 93 14 02 94
+              </p>
             </div>
           </motion.div>
         </div>
