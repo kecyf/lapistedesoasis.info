@@ -37,7 +37,7 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-oasis-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-oasis-500"></span>
             </span>
-            21ème édition — Cap Vert 2025
+            22ème édition — Maroc 2026
           </span>
         </motion.div>
 
@@ -61,7 +61,7 @@ export function Hero() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="mx-auto max-w-2xl text-lg md:text-xl text-sand-300/90 mb-12"
         >
-          Trail à étapes nomade de +100km à travers les plus beaux déserts du
+          Trail à étapes nomade de +100km à travers les plus beaux paysages du
           monde. Depuis 2007, une aventure unique entre effort, découverte et
           partage.
         </motion.p>
@@ -74,10 +74,10 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="#edition"
+            href="#next-edition"
             className="group inline-flex items-center gap-3 rounded-full bg-terracotta-500 px-8 py-4 text-lg font-medium text-white transition-all hover:bg-terracotta-600 hover:scale-105 hover:shadow-lg hover:shadow-terracotta-500/25"
           >
-            Découvrir l'édition 2025
+            Découvrir l'édition 2026
             <svg
               className="h-5 w-5 transition-transform group-hover:translate-x-1"
               fill="none"
@@ -94,7 +94,7 @@ export function Hero() {
           </a>
 
           <a
-            href="#histoire"
+            href="#about"
             className="group inline-flex items-center gap-2 rounded-full border border-sand-400/30 bg-white/5 backdrop-blur-sm px-8 py-4 text-lg font-medium text-sand-100 transition-all hover:bg-white/10"
           >
             <svg
@@ -128,9 +128,9 @@ export function Hero() {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
-            { value: "18", label: "ans d'aventure" },
-            { value: "14+", label: "pays visités" },
-            { value: "4-5", label: "étapes" },
+            { value: "19", label: "ans d'aventure" },
+            { value: "15+", label: "pays visités" },
+            { value: "4", label: "étapes" },
             { value: "20-35", label: "km par étape" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
@@ -176,4 +176,3 @@ export function Hero() {
     </section>
   );
 }
-

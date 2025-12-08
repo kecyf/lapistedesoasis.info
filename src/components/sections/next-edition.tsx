@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FileText, Download } from "lucide-react";
 
 export function NextEdition() {
   return (
-    <section id="edition" className="relative py-24 md:py-32 bg-sand-50">
+    <section id="next-edition" className="relative py-24 md:py-32 bg-sand-50">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-night-900/10 to-transparent" />
 
@@ -21,11 +22,11 @@ export function NextEdition() {
             Prochaine Aventure
           </span>
           <h2 className="font-heading text-4xl md:text-5xl text-night-900 mb-4">
-            Cap Vert 2025
+            Maroc 2026 — La Vallée Heureuse
           </h2>
           <p className="max-w-2xl text-lg text-sand-700">
-            Sao Vicente & Santo Antao — Deux îles mythiques pour une aventure
-            inoubliable entre volcans, vallées luxuriantes et villages perchés.
+            Haut Atlas Central — Découvrez un Maroc authentique, une vie montagnarde 
+            locale et des espaces préservés dans la région d'Aït Bouguemez.
           </p>
         </motion.div>
 
@@ -39,27 +40,18 @@ export function NextEdition() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-sand-200 to-sand-300">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-terracotta-200 to-sand-300">
               {/* Placeholder for image */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-sand-400/50 flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-sand-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-terracotta-400/30 flex items-center justify-center">
+                    <span className="text-4xl">🇲🇦</span>
                   </div>
-                  <p className="text-sm text-sand-600">
-                    Image Cap Vert à venir
+                  <p className="text-sm text-terracotta-700 font-medium">
+                    Haut Atlas Central
+                  </p>
+                  <p className="text-xs text-sand-600 mt-1">
+                    Image à venir
                   </p>
                 </div>
               </div>
@@ -69,10 +61,10 @@ export function NextEdition() {
             <div className="absolute -bottom-4 -right-4 md:bottom-6 md:right-6 bg-white rounded-xl shadow-warm-lg p-4">
               <div className="text-center">
                 <div className="text-3xl font-heading text-terracotta-500">
-                  16-23
+                  2026
                 </div>
                 <div className="text-sm font-medium text-night-800">
-                  Mars 2025
+                  22ème édition
                 </div>
               </div>
             </div>
@@ -89,10 +81,10 @@ export function NextEdition() {
             {/* Key info cards */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: "🏃", label: "Distance", value: "+100 km" },
+                { icon: "🏔️", label: "Région", value: "Haut Atlas" },
                 { icon: "📍", label: "Étapes", value: "4 jours" },
-                { icon: "👥", label: "Participants", value: "45 max" },
-                { icon: "🏔️", label: "Dénivelé", value: "~5000m D+" },
+                { icon: "👥", label: "Places", value: "10 restantes" },
+                { icon: "🏃", label: "Niveau", value: "Accessible" },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -110,23 +102,59 @@ export function NextEdition() {
             {/* Description */}
             <div className="prose prose-sand">
               <p className="text-sand-700 leading-relaxed">
-                Pour cette 21ème édition, nous retournons au Cap Vert, archipel
-                volcanique au large du Sénégal. Après Fogo en 2013 et 2017,
-                découvrez <strong>Sao Vicente</strong> et sa voisine{" "}
-                <strong>Santo Antao</strong>, surnommée "l'île verte" pour ses
-                vallées luxuriantes.
+                Cette nouvelle édition de la Piste des Oasis, la 22ème, se propose 
+                différente, plus <strong>'voyage'</strong>, pour vous faire découvrir 
+                crescendo cette région peu connue dans une des parties les plus hautes 
+                du Haut Atlas central.
               </p>
               <p className="text-sand-700 leading-relaxed">
-                Un parcours exceptionnel entre crêtes volcaniques, sentiers
-                muletiers ancestraux et villages suspendus. Le tout dans une
-                ambiance conviviale, en petits groupes.
+                <strong>La Vallée Heureuse</strong> (Aït Bouguemez), le but final, qui se mérite. 
+                L'aspect traditionnel Berbère conservé dans ces espaces d'altitude offre 
+                une excellente raison de découvrir un Maroc authentique, une vie montagnarde 
+                locale, des espaces préservés.
               </p>
+              <p className="text-sand-600 text-sm italic">
+                Ce sera, après le prologue d'acclimatation, la traversée d'un massif 
+                avec 2 étapes pour monter et traverser des plateaux d'altitude avant de 
+                découvrir enfin la Vallée Heureuse.
+              </p>
+            </div>
+
+            {/* Alert */}
+            <div className="bg-terracotta-50 border border-terracotta-200 rounded-xl p-4">
+              <p className="text-terracotta-800 text-sm font-medium">
+                ⚠️ Il reste seulement 10 places pour cette édition !
+              </p>
+              <p className="text-terracotta-600 text-sm mt-1">
+                La réservation de place par mail est ouverte aux tarifs indiqués sur la fiche programme.
+              </p>
+            </div>
+
+            {/* Documents */}
+            <div className="space-y-3">
+              <p className="text-sm font-medium text-night-800">Documents à télécharger :</p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="/files/programme-maroc-2026.pdf"
+                  className="inline-flex items-center gap-2 rounded-lg border border-sand-300 bg-white px-4 py-3 text-sm font-medium text-night-800 transition-all hover:border-terracotta-500 hover:text-terracotta-600"
+                >
+                  <FileText className="w-4 h-4" />
+                  Le pré-programme avec les informations nécessaires
+                </a>
+                <a
+                  href="/files/inscription-maroc-2026.pdf"
+                  className="inline-flex items-center gap-2 rounded-lg border border-sand-300 bg-white px-4 py-3 text-sm font-medium text-night-800 transition-all hover:border-terracotta-500 hover:text-terracotta-600"
+                >
+                  <Download className="w-4 h-4" />
+                  Inscription pour la LPO Maroc Haut Atlas 2026
+                </a>
+              </div>
             </div>
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="#inscription"
+                href="mailto:capsud.evasion@gmail.com?subject=Inscription LPO Maroc 2026"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-terracotta-500 px-8 py-4 text-base font-medium text-white transition-all hover:bg-terracotta-600 hover:scale-105"
               >
                 Réserver ma place
@@ -144,12 +172,6 @@ export function NextEdition() {
                   />
                 </svg>
               </a>
-              <a
-                href="#programme"
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-sand-300 px-8 py-4 text-base font-medium text-night-800 transition-all hover:border-terracotta-500 hover:text-terracotta-600"
-              >
-                Voir le programme détaillé
-              </a>
             </div>
           </motion.div>
         </div>
@@ -157,4 +179,3 @@ export function NextEdition() {
     </section>
   );
 }
-
