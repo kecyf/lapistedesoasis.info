@@ -88,7 +88,7 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Link
-              href="#inscription"
+              href="/inscription"
               className="inline-flex items-center gap-2 rounded-full bg-terracotta-500 px-6 py-2.5 text-sm font-medium text-white transition-all hover:bg-terracotta-600 hover:scale-105"
             >
               Je m'inscris
@@ -164,7 +164,7 @@ export function Header() {
                   </Link>
                 ))}
                 <Link
-                  href="#inscription"
+                  href="/inscription"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-terracotta-500 px-6 py-3 text-base font-medium text-white"
                 >
