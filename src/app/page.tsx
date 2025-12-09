@@ -6,6 +6,7 @@ import { Hero } from "@/components/sections/hero";
 import { NextEdition } from "@/components/sections/next-edition";
 import { About } from "@/components/sections/about";
 import { Videos } from "@/components/sections/videos";
+import { Gallery } from "@/components/sections/gallery";
 import { Editions } from "@/components/sections/editions";
 import { Team } from "@/components/sections/team";
 import { Footer } from "@/components/layout/footer";
@@ -21,6 +22,7 @@ export default function Home() {
       <Hero />
       <NextEdition />
       <About />
+      <Gallery />
       <Videos />
       <Editions />
       <Team />
