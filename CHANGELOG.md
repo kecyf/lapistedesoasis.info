@@ -6,7 +6,7 @@
 
 ## [2025-12-08]
 
-### session-04: Maroc 2026 update & inscription form
+### session-04: Maroc 2026 update, inscription form & photo gallery
 
 #### 🎯 Accomplishments
 
@@ -40,12 +40,21 @@
 - Success confirmation screen
 - Full legal form handled via email follow-up
 
+**Photo Gallery**
+- 17 photos from Cap Vert 2025 (Emmanuelle Perès)
+- Bento grid layout (5 featured, "+12 more")
+- Lightbox with keyboard nav, thumbnails
+- Responsive + accessible (aria-labels, focus states)
+- Body scroll lock when lightbox open
+
 #### 📁 Files
 
 ```
 NEW: src/app/reglement/page.tsx
 NEW: src/app/inscription/page.tsx
 NEW: src/components/sections/team.tsx
+NEW: src/components/sections/gallery.tsx
+NEW: public/photos/ (17 photos)
 NEW: public/files/ (for future PDFs)
 MOD: hero.tsx, next-edition.tsx, editions.tsx, header.tsx, page.tsx
 ```
