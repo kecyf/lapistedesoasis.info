@@ -1,56 +1,35 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Heart, Camera, MapPin, Clock, Mountain, Activity } from 'lucide-react';
+import { Users, Heart, MapPin, Mountain } from 'lucide-react';
 
 const teamMembers = [
   {
     name: 'Gilbert',
     role: 'Responsable équipe LPO',
-    description: 'Coordinateur général de l\'événement',
+    description: 'Coordinateur général de l\'événement depuis 2007',
     icon: Users,
     color: 'terracotta'
   },
   {
-    name: 'Patrick',
-    role: 'Secouriste professionnel',
-    description: 'Ex-secours montagne, garant de votre sécurité',
-    icon: Heart,
-    color: 'oasis'
-  },
-  {
-    name: 'Gérard',
-    role: 'Responsable organisation',
-    description: 'Club randonnée, expert en événements',
+    name: 'Jean Michel',
+    role: 'Balisage & Ravitaillement',
+    description: 'Responsable du balisage et des points de contrôle. Toujours sur tous les fronts avec le sourire !',
     icon: MapPin,
-    color: 'night'
-  },
-  {
-    name: 'Marc',
-    role: 'Webmaster & circuits',
-    description: 'Triathlète, responsable du choix des parcours',
-    icon: Mountain,
-    color: 'terracotta'
-  },
-  {
-    name: 'Jean Claude',
-    role: 'Photographe officiel',
-    description: 'Champion de France photo sous-marine',
-    icon: Camera,
     color: 'oasis'
   },
   {
-    name: 'Hervé',
-    role: 'Gestion terrain',
-    description: 'Sportif haut niveau, coordination sur place',
-    icon: Activity,
+    name: 'Godefroy',
+    role: 'Médecin de la course',
+    description: 'Haut en couleur et toujours disponible pour vous remettre d\'aplomb. Baroudeur dans l\'âme, il ne tarit pas d\'histoires à raconter.',
+    icon: Heart,
     color: 'night'
   },
   {
-    name: 'Aimée',
-    role: 'Chronométrage & admin',
-    description: 'Gestion des temps et administration',
-    icon: Clock,
+    name: 'Ibrahim',
+    role: 'Guide Maroc 2026',
+    description: 'Natif du Haut Atlas, guide et géographe. Un puits de science sur cette région montagneuse du Maroc.',
+    icon: Mountain,
     color: 'terracotta'
   }
 ];
@@ -101,9 +80,9 @@ export function Team() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-lg border border-sand-200 p-8 mb-12 max-w-3xl mx-auto"
+          className="bg-white rounded-2xl shadow-lg border border-sand-200 p-6 md:p-8 mb-12 max-w-3xl mx-auto"
         >
-          <div className="flex items-start gap-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left">
             <div className="p-4 bg-gradient-to-br from-terracotta-500 to-terracotta-600 rounded-xl text-white shrink-0">
               <Mountain className="w-8 h-8" />
             </div>
@@ -133,7 +112,7 @@ export function Team() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => {
             const Icon = member.icon;
             const colors = colorClasses[member.color as keyof typeof colorClasses];
@@ -164,20 +143,6 @@ export function Team() {
           })}
         </div>
 
-        {/* Partner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <p className="text-sand-500 text-sm mb-4">Partenaire officiel</p>
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-sm border border-sand-200">
-            <span className="font-display font-bold text-night-900">RaidLight</span>
-            <span className="text-sand-400">•</span>
-            <span className="text-sand-600 text-sm">Équipementier Trail</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

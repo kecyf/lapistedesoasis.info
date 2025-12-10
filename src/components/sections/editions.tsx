@@ -102,29 +102,54 @@ export function Editions() {
           {/* Center line */}
           <div className="absolute left-1/2 top-16 bottom-0 w-px bg-sand-300 hidden md:block" />
 
-          <div className="space-y-6">
+          {/* Mobile: Simple grid */}
+          <div className="grid grid-cols-2 gap-3 md:hidden">
             {editions.filter(e => e.status === 'past').map((edition, index) => (
               <motion.div
-                key={`${edition.year}-${edition.destination}`}
+                key={`mobile-${edition.year}-${edition.destination}`}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.02 }}
+                className="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm"
+              >
+                <span className="text-2xl shrink-0">{edition.country}</span>
+                <div className="min-w-0">
+                  <div className="font-heading text-sm text-night-900 truncate">
+                    {edition.destination}
+                  </div>
+                  <span className="text-sand-500 text-xs">
+                    {edition.year}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop: Timeline */}
+          <div className="hidden md:block space-y-6">
+            {editions.filter(e => e.status === 'past').map((edition, index) => (
+              <motion.div
+                key={`desktop-${edition.year}-${edition.destination}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.03 }}
                 className={`relative flex items-center ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
                 }`}
               >
                 {/* Content */}
                 <div
-                  className={`w-full md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
+                  className={`w-1/2 ${
+                    index % 2 === 0 ? "pr-12 text-right" : "pl-12"
                   }`}
                 >
                   <div
                     className="inline-flex items-center gap-4 p-4 rounded-xl bg-white shadow-warm hover:shadow-warm-lg transition-shadow"
                   >
                     <span className="text-3xl">{edition.country}</span>
-                    <div className={index % 2 === 0 ? "md:text-right" : ""}>
+                    <div className={index % 2 === 0 ? "text-right" : ""}>
                       <div className="flex items-center gap-2">
                         <span className="font-heading text-xl text-night-900">
                           {edition.destination}
@@ -138,12 +163,12 @@ export function Editions() {
                 </div>
 
                 {/* Center dot */}
-                <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center justify-center">
+                <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
                   <div className="w-3 h-3 rounded-full border-4 border-sand-100 bg-oasis-500" />
                 </div>
 
                 {/* Empty space for alternating layout */}
-                <div className="hidden md:block md:w-1/2" />
+                <div className="w-1/2" />
               </motion.div>
             ))}
           </div>
