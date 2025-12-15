@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -17,6 +18,7 @@ const navItems = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +27,24 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    try {
+      const dismissed = window.localStorage.getItem("lpo_banner_refonte_dismissed");
+      if (dismissed === "1") setShowBanner(false);
+    } catch {
+      // ignore (privacy mode / blocked storage)
+    }
+  }, []);
+
+  const dismissBanner = () => {
+    try {
+      window.localStorage.setItem("lpo_banner_refonte_dismissed", "1");
+    } catch {
+      // ignore
+    }
+    setShowBanner(false);
+  };
 
   return (
     <motion.header
@@ -38,6 +58,65 @@ export function Header() {
           : "bg-transparent"
       )}
     >
+      {/* Top announcement banner */}
+      <AnimatePresence initial={false}>
+        {showBanner && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8, height: 0, marginBottom: 0 }}
+            transition={{ duration: 0.25 }}
+            className={cn(
+              "w-full border-b",
+              isScrolled ? "border-sand-200 bg-sand-50/95" : "border-white/10 bg-night-900/40 backdrop-blur-md"
+            )}
+            role="region"
+            aria-label="Annonce"
+          >
+            <div className="mx-auto max-w-7xl px-6 py-2.5 flex items-center justify-between gap-3">
+              <div className="min-w-0 text-xs sm:text-sm">
+                <span className={cn("font-medium", isScrolled ? "text-night-900" : "text-white")}>
+                  Nouveau site en ligne
+                </span>
+                <span className={cn("mx-2", isScrolled ? "text-sand-400" : "text-white/40")}>•</span>
+                <span className={cn("truncate", isScrolled ? "text-sand-700" : "text-sand-100/90")}>
+                  Bienvenue sur la refonte de lapistedesoasis.info
+                </span>
+                <span className={cn("hidden sm:inline", isScrolled ? "text-sand-700" : "text-sand-100/90")}>
+                  {" "}
+                  — découvrez l’édition Maroc 2026
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <Link
+                  href="/#next-edition"
+                  className={cn(
+                    "hidden sm:inline-flex rounded-full px-3 py-1 text-xs font-medium transition-colors",
+                    isScrolled
+                      ? "bg-terracotta-100 text-terracotta-700 hover:bg-terracotta-200"
+                      : "bg-white/10 text-white hover:bg-white/15"
+                  )}
+                >
+                  Voir la nouveauté
+                </Link>
+                <button
+                  type="button"
+                  onClick={dismissBanner}
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-full p-1.5 transition-colors focus:outline-none focus:ring-2 focus:ring-terracotta-500",
+                    isScrolled ? "hover:bg-sand-100 text-night-900" : "hover:bg-white/10 text-white"
+                  )}
+                  aria-label="Fermer l'annonce"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <nav className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
