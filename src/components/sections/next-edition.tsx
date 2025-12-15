@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Calendar, MapPin, Users, Mountain, Euro, Plane, Moon, ChevronRight } from "lucide-react";
+import { MarocGallery } from "@/components/sections/maroc-preview";
 
 const stages = [
   { day: 1, name: "France → Marrakech", type: "travel", desc: "Accueil aéroport, installation riad" },
@@ -66,6 +68,16 @@ export function NextEdition() {
               <div className="text-xs text-sand-600">{item.sub}</div>
             </div>
           ))}
+        </motion.div>
+
+        {/* Maroc 2026 gallery (merged into this section) */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <MarocGallery className="max-w-6xl mx-auto" />
         </motion.div>
 
         {/* Two columns: Programme + Details */}
@@ -212,13 +224,13 @@ export function NextEdition() {
 
             {/* CTA */}
             <div className="space-y-3">
-              <a
-                href="mailto:capsud.evasion@gmail.com?subject=Inscription LPO Maroc Haut Atlas 2026"
+              <Link
+                href="/inscription"
                 className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-night-900 px-6 py-4 text-base font-medium text-white transition-all hover:bg-night-800 hover:scale-[1.02]"
               >
-                Réserver ma place
+                Je m&apos;inscris
                 <ChevronRight className="w-5 h-5" />
-              </a>
+              </Link>
               <p className="text-center text-xs text-sand-500">
                 Contact : capsud.evasion@gmail.com • 04 93 14 02 94
               </p>

@@ -6,10 +6,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "#next-edition", label: "Prochaine Édition" },
-  { href: "#about", label: "Notre Histoire" },
-  { href: "#editions", label: "Éditions" },
-  { href: "#team", label: "Équipe" },
+  // Use absolute hash routes so it works from /reglement and /inscription too
+  { href: "/#next-edition", label: "Prochaine Édition" },
+  { href: "/#histoire", label: "Notre Histoire" },
+  { href: "/#editions", label: "Éditions" },
+  { href: "/#team", label: "Équipe" },
   { href: "/reglement", label: "Règlement" },
 ];
 

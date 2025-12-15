@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/header";
 import { Hero } from "@/components/sections/hero";
-import { MarocPreview } from "@/components/sections/maroc-preview";
 import { NextEdition } from "@/components/sections/next-edition";
 import { About } from "@/components/sections/about";
 import { Videos } from "@/components/sections/videos";
@@ -21,7 +20,6 @@ export default function Home() {
     >
       <Header />
       <Hero />
-      <MarocPreview />
       <NextEdition />
       <About />
       <Gallery />
